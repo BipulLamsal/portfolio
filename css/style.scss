@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;700&family=Poppins:wght@300;400;700&display=swap');
+$base-text-color:#101010;
+$sec-text-color:#373737;
+$base-back-color:#DDDDDD;
+$sec-back-color:#d2d2d2;
+$font-fira : 'Fira Code', monospace;
+$font-pop : 'Poppins', sans-serif;
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // font-family: 'Fira Code', monospace;font-family: 'Poppins', sans-serif;
+}
+.cursor {
+	position: fixed;
+	width: 50px; 
+	height: 50px;
+    border: 1px solid $base-text-color;
+    border-radius: 50%; 
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    transition: .1s;
+    mix-blend-mode: color-burn;
+}
+.cursor2 {
+	position: fixed;
+	width: 8px; 
+	height: 8px;
+    background-color: $sec-text-color;
+    border-radius: 50%; 
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    transition: .15s;
+}
+
+
+body{
+    overflow-x: hidden;
+    background-color: $base-back-color;
+}
+
+.container
+{
+    padding: 10px;
+    margin: 0 100px;
+}
+
+.navbar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.mb-nav-toggle
+    {
+        display: none;
+    }
+
+
+.nav-logo
+{
+    img
+    {
+height: 50px;
+width: 50px;
+    }
+}
+.nav-links
+{
+    transform: translateX(0%);
+    a{
+        text-decoration: none;
+        color: $sec-text-color;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        position: relative;
+
+        span{
+            font-family: 'Fira Code', monospace;
+            font-weight: 700;
+            margin-left: 30px;
+        }
+        
+    
+
+        ::before
+        {
+            transition: width 0.5s ease;
+            content: '';
+            position: absolute;
+            width: 0%;
+            bottom: -7px;
+            height: 2px;
+            background-color: $sec-text-color;
+            
+
+        }
+    }
+
+
+    a:hover
+    {
+        ::before
+        {
+            
+            width: 80%;
+            
+        }
+
+
+    }
+
+
+    
+
+}
+
+
+.mainContent
+{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    
+
+    
+}
+
+.textContainer
+{
+    color: $base-text-color;
+    margin-top: 140px;
+    width: 900px;
+    font-family: $font-pop;
+.subText
+{
+    font-family: $font-fira;
+    font-size: 16px;
+    color: $sec-text-color;
+}
+.mainText,.mainSubText
+{
+    font-size: 72px;
+    font-weight: 600;
+
+    
+}
+.mainSubText
+{
+    line-height: 80px;
+    color: $sec-text-color;
+}
+
+.descriptionText
+{
+    width: 500px;
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 100;
+    
+
+}
+}
+
+
+.imageContainer 
+{
+    position: relative;
+
+    img
+    {
+        position: absolute;
+        bottom: -30vh;
+        left: -50px;
+        height: 500px;
+        z-index: -100;
+    }
+}
+
+
+
+.content
+{
+    color: $base-text-color;
+}
+
+.content:hover ~ .cursor{
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: black;
+    opacity: 100;
+    
+  }
+.content:hover ~ .cursor2{
+
+    opacity: 0;
+  }
+
+@media (max-width : 40em) {
+    .nav-links
+    {
+        z-index: 1000;
+        position: fixed;
+        inset: 0 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+        padding: min(30vh,10rem) 2em;
+        background-color: rgba(255, 0, 0, 0.1);
+        backdrop-filter: blur(1rem);
+        transform: translateX(0%);
+        transition: transform 350ms ease;
+    }
+    .mb-nav-toggle
+    {
+        display: block;
+        z-index: 9999;
+        position: absolute;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 2rem;
+        right: 2rem;
+    }
+
+    
+}

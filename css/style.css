@@ -37,9 +37,35 @@ body {
   background-color: #DDDDDD;
 }
 
+.loader {
+  width: 100%;
+  position: relative;
+  z-index: 999;
+  top: 0;
+}
+.loader .blinder-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+}
+.loader .blinder {
+  background-color: #101010;
+  flex: 1;
+  height: 100vh;
+  transform-origin: top;
+}
+
 .container {
   padding: 10px;
   margin: 0 100px;
+}
+
+.mask {
+  overflow: hidden;
+}
+.mask .animText {
+  transform: translateY(-140%);
 }
 
 .navbar {
@@ -90,6 +116,7 @@ body {
   display: flex;
   flex-direction: row;
   position: relative;
+  height: 100vh;
 }
 
 .textContainer {
@@ -115,7 +142,7 @@ body {
   width: 500px;
   margin-top: 40px;
   font-size: 16px;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .imageContainer {
@@ -123,10 +150,68 @@ body {
 }
 .imageContainer img {
   position: absolute;
-  bottom: -30vh;
+  bottom: 5vh;
   left: -50px;
   height: 500px;
   z-index: -100;
+}
+
+.aboutContainer {
+  margin-top: 60px;
+}
+
+.aboutHeadText {
+  display: inline-block;
+  font-size: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #101010;
+  position: relative;
+}
+.aboutHeadText .subText {
+  font-family: "Fira Code", monospace;
+  font-weight: 400;
+  padding-right: 10px;
+  color: #373737;
+}
+.aboutHeadText ::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 1px;
+  background-color: #373737;
+  right: -200px;
+  bottom: 50%;
+}
+
+.descriptionAboutText {
+  font-size: 16px;
+  margin-top: 30px;
+  font-family: "Poppins", sans-serif;
+  color: #373737;
+  display: flex;
+  flex-direction: row;
+}
+.descriptionAboutText .leftDesc {
+  width: 50%;
+}
+.descriptionAboutText .leftDesc span {
+  display: inline-block;
+  margin-top: 20px;
+}
+.descriptionAboutText .rightDesc {
+  padding-left: 30px;
+}
+.descriptionAboutText .rightDesc .DesList {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.descriptionAboutText .rightDesc .DesList li {
+  text-decoration: none;
+  list-style: none;
+  padding: 5px;
+  font-family: "Fira Code", monospace;
 }
 
 .content {
